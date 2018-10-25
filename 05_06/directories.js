@@ -4,12 +4,16 @@ var fs = require("fs");
 
 // console.log("Directory moved.");
 
-fs.rmdir("./assets", function(err) {
-    if(err){
-        throw err;
-    }
+// fs.rmdir("./assets", function(err) {
+//     if(err){
+//         throw err;
+//     }
 
-    console.log("Assets Directory Removed.");
+//     console.log("Assets Directory Removed.");
+// });
+
+fs.readdirSync("./logs").forEach(function(fileName){
+    fs.unlinkSync("./logs/"+fileName);
 });
 
 fs.rmdir("./logs", function(err){
